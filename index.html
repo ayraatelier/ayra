@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYRA ATELIER | Bridal Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Glossy Black Base Theme */
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair+Display', serif;
+            font-weight: 700;
+        }
+
+        /* Top Banner Slider */
+        .slider-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-images {
+            display: flex;
+            width: 600%; /* 6 images */
+            height: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .slide {
+            width: 16.666%; /* 1/6th */
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* !!! ADMIN: Replace 'image_0.png', 'image_1.png', etc. with your local image paths (e.g., 'images/bridal_1.jpg') !!! */
+        .slide-1 { background-image: url('image_0.png'); }
+        .slide-2 { background-image: url('image_1.png'); }
+        .slide-3 { background-image: url('image_2.png'); }
+        .slide-4 { background-image: url('image_3.png'); }
+        .slide-5 { background-image: url('image_4.png'); }
+        .slide-6 { background-image: url('image_5.png'); }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay for text readability */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Logo Area */
+        .logo {
+            font-family: 'Playfair+Display', serif;
+            font-size: 3.5rem; /* Larger Title */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Soft Shadow */
+            margin-bottom: 20px;
+        }
+
+        .logo small {
+            display: block;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            text-shadow: none;
+        }
+
+        /* Headline Text */
+        .header-overlay h2 {
+            font-size: 2.8rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        /* Admin Contact Info Area */
+        .admin-editable-info {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            text-align: right;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .admin-editable-info p {
+            margin: 0;
+        }
+
+        /* !!! ADMIN: Change Phone and Location below !!! */
+        .phone-admin::before { content: "+91 91xxxxxxxx "; } /* Add phone number in number */
+        .location-admin::before { content: "Specific Street, City, State "; } /* Location name in text */
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 80px 20px;
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+
+        .welcome-section h1 {
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .welcome-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+
+        .welcome-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #333;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: #fff;
+            margin-bottom: 50px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366; /* WhatsApp Green */
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .whatsapp-btn img {
+            margin-right: 10px;
+            height: 20px;
+        }
+
+        .contact-details {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+
+        .contact-details .studio-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- !!! IMPORTANT: This is a static HTML page. It needs images and real text. !!! -->
+    <!-- You will need to create a folder with the images you want to use and replace the dummy paths. -->
+    
+    <!-- Top Banner Slider -->
+    <div class="slider-container">
+        <div class="slider-images">
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+            <div class="slide slide-4"></div>
+            <div class="slide slide-5"></div>
+            <div class="slide slide-6"></div>
+        </div>
+
+        <div class="header-overlay">
+            <div class="logo">
+                AYRA<small>ATELIER<br>Skin | Hair | Bridal Studio</small>
+            </div>
+            
+            <h2>REFINED BEAUTY & GROOMING SOLUTIONS</h2>
+            
+            <p>Experience sophisticated, personalized beauty treatments today</p>
+            
+            <!-- ADMIN EDITABLE INFO -->
+            <div class="admin-editable-info">
+                <p><span class="phone-admin"></span></p>
+                <p><span class="location-admin"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <h1>Hello</h1>
+        <h2>WELCOME</h2>
+        <p>There's much to see here. So, take your time, look around, and learn all there is to know about us. We hope you enjoy our site and take a moment to drop us a line.</p>
+        <a href="#" class="cta-button">Find out more</a>
+    </div>
+
+    <!-- Contact Us Section -->
+    <div class="contact-section">
+        <h2>CONTACT US</h2>
+        
+        <a href="#" class="whatsapp-btn">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Message us on WhatsApp
+        </a>
+        
+        <div class="contact-details">
+            <p class="studio-name">AYRA ATELIER | Bridal Studio</p>
+            <!-- !!! ADMIN: Change Phone and Location below !!! -->
+            <p><span class="phone-admin"></span></p>
+            <p><span class="location-admin"></span></p>
+            <p>Email: contact@ayraatelier.com</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2026 AYRA ATELIER the Bridal Studio - All Rights Reserved.</p>
+    </div>
+
+    <!-- JavaScript for Slider -->
+    <script>
+        const sliderImages = document.querySelector('.slider-images');
+        let counter = 1;
+        const size = document.querySelector('.slide').clientWidth;
+
+        setInterval(() => {
+            if (counter >= 6) {
+                counter = 0;
+            }
+            sliderImages.style.transition = "transform 1s ease-in-out";
+            sliderImages.style.transform = 'translateX(' + (-size * counter) + 'px)';
+            counter++;
+        }, 4000); // 4 seconds interval
+    </script>
+</body>
+</html>
