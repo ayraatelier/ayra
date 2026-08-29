@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AYRA ATELIER | Skin • Hair • Bridal Studio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --text-white: #ffffff;
+            --text-muted: #a0a0a0;
+            --border-color: #262626;
+            --pink-accent: #a85878;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .mobile-container {
+            width: 100%;
+            max-width: 430px;
+            background-color: var(--bg-color);
+            position: relative;
+            padding-bottom: 70px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        /* Top Navigation Header */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px 5px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-bar i {
+            font-size: 20px;
+            color: var(--text-white);
+            cursor: pointer;
+        }
+
+        /* Header Area with Louvers & Glass Effect */
+        .hero-header-section {
+            position: relative;
+            padding: 20px 20px 25px 20px;
+            overflow: hidden;
+            background: #000000;
+        }
+
+        .louvers-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0.03) 0px,
+                rgba(255, 255, 255, 0.03) 8px,
+                rgba(0, 0, 0, 0.95) 9px,
+                rgba(0, 0, 0, 0.95) 18px
+            );
+            mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent 100%);
+            -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .light-sweep {
+            position: absolute;
+            top: -20%;
+            left: -150%;
+            width: 80%;
+            height: 140%;
+            background: linear-gradient(
+                90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.05) 30%, 
+                rgba(255, 255, 255, 0.25) 50%, 
+                rgba(255, 255, 255, 0.05) 70%, 
+                transparent 100%
+            );
+            transform: rotate(25deg);
+            pointer-events: none;
+            transition: left 0.7s ease-out;
+            z-index: 2;
+        }
+
+        .brand-header-layout {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.95));
+        }
+
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+        }
+
+        .brand-title-ayra {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 52px;
+            letter-spacing: 12px;
+            color: #ffffff;
+            line-height: 0.9;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle-atelier {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 4px;
+            margin-bottom: 8px;
+            padding-right: 11px;
+        }
+
+        .brand-subtitle-atelier span {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--pink-accent);
+            text-transform: uppercase;
+        }
+
+        .brand-tagline-bar {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 15.5px;
+            color: #ffffff;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-tagline-bar .sep {
+            font-weight: 300;
+            opacity: 0.8;
+            font-size: 16px;
+        }
+
+        .brand-right-logo {
+            width: 95px;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+
+        .brand-right-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: invert(1) brightness(2) drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.3));
+        }
+
+        /* DYNAMIC BANNER CAROUSEL SLIDER STYLES */
+        .banner-carousel {
+            position: relative;
+            margin: 15px 15px 30px 15px;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 230px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .slides-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .slide-item {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.75) 100%);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 85%;
+        }
+
+        .banner-subtitle {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d1d1d1;
+            margin-bottom: 5px;
+        }
+
+        .banner-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .banner-desc {
+            font-size: 11px;
+            color: #cccccc;
+            margin-bottom: 18px;
+            line-height: 1.4;
+        }
+
+        .banner-btn {
+            display: inline-block;
+            border: 1.5px solid #ffffff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 9.5px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            z-index: 5;
+            transition: background 0.3s ease;
+        }
+        .carousel-arrow:hover { background: rgba(0,0,0,0.9); }
+        .carousel-arrow.left { left: 10px; }
+        .carousel-arrow.right { right: 10px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            width: 22px;
+            border-radius: 4px;
+            background: #ffffff;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 35px;
+            height: 2px;
+            background: #666;
+            margin: 6px auto 0;
+        }
+
+        /* Action Cards */
+        .action-cards {
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .action-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 35px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            position: relative;
+        }
+
+        .action-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        .action-details {
+            flex-grow: 1;
+        }
+
+        .action-label {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .action-value {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .action-arrow {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Location Card */
+        .location-card {
+            margin: 0 15px 25px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .location-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            max-width: 60%;
+        }
+
+        .location-info i {
+            font-size: 18px;
+            margin-top: 3px;
+        }
+
+        .location-title {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .location-address {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: 3px;
+            line-height: 1.3;
+        }
+
+        .btn-maps {
+            background: white;
+            color: black;
+            border-radius: 20px;
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Social Section */
+        .social-section {
+            margin: 0 15px 25px 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .social-subtitle {
+            font-size: 10px;
+            color: var(--text-muted);
+            margin-top: -12px;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #222222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border: 1px solid #333;
+        }
+
+        .social-name {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        /* Grid Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            padding: 0 15px;
+            margin-bottom: 25px;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 90px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-end;
+            text-decoration: none;
+            color: white;
+        }
+
+        .service-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%);
+        }
+
+        .service-label {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 6px;
+            font-size: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .service-label i {
+            font-size: 9px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 0 15px 15px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9px;
+            color: #666;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 15px;
+        }
+
+        /* Bottom Sticky Nav Bar */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 430px;
+            height: 60px;
+            background: #000000;
+            border-top: 1px solid #1f1f1f;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .nav-tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #777777;
+            text-decoration: none;
+            font-size: 9px;
+        }
+
+        .nav-tab.active {
+            color: #ffffff;
+        }
+
+        .nav-tab i {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        <div class="top-bar">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <header class="hero-header-section" id="heroHeader">
+            <div class="louvers-background"></div>
+            <div class="light-sweep" id="lightSweep"></div>
+
+            <div class="brand-header-layout">
+                <div class="brand-text-block">
+                    <div class="brand-title-ayra">AYRA</div>
+                    <div class="brand-subtitle-atelier">
+                        <span>A</span>
+                        <span>T</span>
+                        <span>E</span>
+                        <span>L</span>
+                        <span>I</span>
+                        <span>E</span>
+                        <span>R</span>
+                    </div>
+                    <div class="brand-tagline-bar">
+                        <span>Skin</span>
+                        <span class="sep">|</span>
+                        <span>Hair</span>
+                        <span class="sep">|</span>
+                        <span>Bridal Studio</span>
+                    </div>
+                </div>
+
+                <div class="brand-right-logo">
+                    <img src="Lady logo.png" alt="AYRA Butterfly Lady Logo">
+                </div>
+            </div>
+        </header>
+
+        <section class="banner-carousel">
+            <div class="carousel-arrow left" id="prevSlide"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="carousel-arrow right" id="nextSlide"><i class="fa-solid fa-chevron-right"></i></div>
+            
+            <div class="slides-wrapper" id="slidesWrapper">
+                <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=80');">
+                    <div class="slide-overlay"></div>
+                    <div class="banner-content">
+                        <div class="banner-subtitle">ENHANCE YOUR</div>
+                        <h2 class="banner-title">Natural Beauty</h2>
+                        <p class="banner-desc">Expert care for your Skin, Hair & Bridal dreams.</p>
+                        <a href="#" class="banner-btn">LOOK BEAUTIFUL • FEEL CONFIDENT</a>
+                    </div>
+                </div>
+
+                <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80');">
+                    <div class="slide-overlay"></div>
+                    <div class="banner-content">
+                        <div class="banner-subtitle">PREMIUM SKINCARE</div>
+                        <h2 class="banner-title">Radiant Glow</h2>
+                        <p class="banner-desc">Personalized facials & advanced skincare treatments.</p>
+                        <a href="#" class="banner-btn">BOOK SKIN CONSULTATION</a>
+                    </div>
+                </div>
+
+                <div class="slide-item" style="background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=800&q=80');">
+                    <div class="slide-overlay"></div>
+                    <div class="banner-content">
+                        <div class="banner-subtitle">EXQUISITE BRIDAL</div>
+                        <h2 class="banner-title">Your Special Day</h2>
+                        <p class="banner-desc">Complete luxury bridal makeover packages available.</p>
+                        <a href="#" class="banner-btn">EXPLORE BRIDAL PACKAGES</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-dots" id="carouselDots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+            </div>
+        </section>
+
+        <h2 class="section-title">Book Your Appointment</h2>
+
+        <div class="action-cards">
+            <a href="tel:+919876543210" class="action-card">
+                <div class="action-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="action-details">
+                    <div class="action-label">CALL US NOW</div>
+                    <div class="action-value">+91 98765 43210</div>
+                </div>
+            </a>
+
+            <a href="https://wa.me/919876543210" class="action-card">
+                <div class="action-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="action-details">
+                    <div class="action-label">CHAT ON WHATSAPP</div>
+                    <div class="action-value">+91 98765 43210</div>
+                </div>
+                <div class="action-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+            </a>
+        </div>
+
+        <div class="location-card">
+            <div class="location-info">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <div class="location-title">Our Studio Location</div>
+                    <div class="location-address">Mangattukadavu, Near Nagarjuna Ayurveda Pharmacy, Kozhikode, Kerala - 673XXX</div>
+                </div>
+            </div>
+            <a href="#" class="btn-maps">
+                <i class="fa-solid fa-location-arrow"></i>
+                <span>View on<br>Google Maps</span>
+            </a>
+        </div>
+
+        <div class="social-section">
+            <h3 class="section-title" style="font-size: 18px; margin-bottom: 15px;">Follow Us</h3>
+            <div class="social-subtitle">Stay connected for latest works & offers</div>
+            <div class="social-links">
+                <a href="#" class="social-item">
+                    <div class="social-circle"><i class="fa-brands fa-instagram"></i></div>
+                    <span class="social-name">Instagram</span>
+                </a>
+                <a href="#" class="social-item">
+                    <div class="social-circle"><i class="fa-brands fa-facebook-f"></i></div>
+                    <span class="social-name">Facebook</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <a href="#" class="service-card" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=300&q=80');">
+                <div class="service-overlay"></div>
+                <div class="service-label"><i class="fa-regular fa-heart"></i> Beauty</div>
+            </a>
+            <a href="#" class="service-card" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=300&q=80');">
+                <div class="service-overlay"></div>
+                <div class="service-label"><i class="fa-solid fa-leaf"></i> Care</div>
+            </a>
+            <a href="#" class="service-card" style="background-image: url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=300&q=80');">
+                <div class="service-overlay"></div>
+                <div class="service-label"><i class="fa-solid fa-crown"></i> Bridal</div>
+            </a>
+            <a href="#" class="service-card" style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=300&q=80');">
+                <div class="service-overlay"></div>
+                <div class="service-label"><i class="fa-solid fa-wand-magic-sparkles"></i> Glow</div>
+            </a>
+        </div>
+
+        <footer>
+            <div>© 2026 AYRA ATELIER. All Rights Reserved.</div>
+            <div>Designed with <i class="fa-solid fa-heart" style="color: white;"></i></div>
+        </footer>
+
+        <nav class="bottom-nav">
+            <a href="#" class="nav-tab active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-tab">
+                <i class="fa-solid fa-scissors"></i>
+                <span>Services</span>
+            </a>
+            <a href="#" class="nav-tab">
+                <i class="fa-regular fa-images"></i>
+                <span>Gallery</span>
+            </a>
+            <a href="#" class="nav-tab">
+                <i class="fa-solid fa-gift"></i>
+                <span>Offers</span>
+            </a>
+            <a href="#" class="nav-tab">
+                <i class="fa-regular fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+        </nav>
+    </div>
+
+    <script>
+        // --- 1. LIGHT SWEEP REFLECTION LOGIC ---
+        const heroHeader = document.getElementById('heroHeader');
+        const lightSweep = document.getElementById('lightSweep');
+
+        heroHeader.addEventListener('mousemove', (e) => {
+            const rect = heroHeader.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percentage = (x / rect.width) * 200 - 50;
+            lightSweep.style.left = `${percentage}%`;
+        });
+
+        heroHeader.addEventListener('mouseleave', () => {
+            lightSweep.style.left = '-150%';
+        });
+
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            lightSweep.style.left = '150%';
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                lightSweep.style.left = '-150%';
+            }, 700);
+        });
+
+        // --- 2. AUTOMATIC & MANUAL CAROUSEL SLIDER LOGIC ---
+        const slidesWrapper = document.getElementById('slidesWrapper');
+        const dots = document.querySelectorAll('#carouselDots .dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        const totalSlides = dots.length;
+        let currentSlide = 0;
+        let slideTimer;
+
+        function updateSlider(index) {
+            currentSlide = index;
+            slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            let newIndex = (currentSlide + 1) % totalSlides;
+            updateSlider(newIndex);
+        }
+
+        function prevSlide() {
+            let newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider(newIndex);
+        }
+
+        function startAutoPlay() {
+            slideTimer = setInterval(nextSlide, 4000); // Transitions every 4 seconds
+        }
+
+        function stopAutoPlay() {
+            clearInterval(slideTimer);
+        }
+
+        // Event Listeners for Manual Controls
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                stopAutoPlay();
+                const index = parseInt(e.target.getAttribute('data-index'));
+                updateSlider(index);
+                startAutoPlay();
+            });
+        });
+
+        // Initialize autoplay on page load
+        startAutoPlay();
+    </script>
+</body>
+</html>
